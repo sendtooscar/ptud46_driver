@@ -99,7 +99,7 @@ int main(int argc, char **argv){
 	tilt_ang = 0;
 	std::string cmd_string;
 	std::stringstream cmd_string_stream;
-	std_msgs::String msg2;
+	std_msgs::bool msg2;
 	int count = 0;
 	unsigned char buff_line[10];
 	bool fwdp=true;
@@ -154,7 +154,7 @@ int main(int argc, char **argv){
                 //pan_cmd=1000;
                 //tilt_cmd=100;
             if (new_cmd){
-                msg2.data = "!";
+                msg2.data = false;
                 ready_pub.publish(msg2);
                 cmd_string_stream.str("");
                 cmd_string_stream<<"PP"<< int(pan_cmd) <<std::endl;
@@ -184,7 +184,7 @@ int main(int argc, char **argv){
 	      }
 	    
 	 
-         msg2.data = "*";
+         msg2.data = true;
          ready_pub.publish(msg2);  
 	      
 
